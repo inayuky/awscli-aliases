@@ -1,0 +1,21 @@
+[toplevel]
+
+ec2-list = ec2 describe-instances \
+    --output table \
+    --query 'Reservations[].Instances[].{ID: InstanceId, Name: Tags[?Key==`Name`].Value | [0], PublicIP: PublicIpAddress, State: State.Name, Type: InstanceType}'
+
+ec2-start =
+  !f() {
+    aws ec2 start-instances --instance-ids i-"${1}"
+  }; f
+
+ec2-stop = 
+  !f() {
+    aws ec2 stop-instances --instance-ids i-"${1}"
+  }; f
+
+ec2-show = 
+  !f() {
+    aws ec2 describe-instances --instance-ids i-"${1}"
+  }; f
+
