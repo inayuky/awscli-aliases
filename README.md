@@ -76,7 +76,7 @@ inayuky ~ % aws ec2-start 077ed543385b9cb86
 }
 ```
 
-さきほどのコマンドで起動したことを確認できます。
+インスタンス一覧表示で起動したことを確認できます。
 
 ```
 inayuky ~ % aws ec2-list                   
@@ -150,3 +150,8 @@ inayuky ~ % aws ec2-show 077ed543385b9cb86
                         "Name": "stopped"
                     },
 ・・・以下略・・・
+```
+
+## License
+
+MIT
